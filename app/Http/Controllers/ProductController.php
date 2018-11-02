@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
-use paginate;
-use App\Client;
 
-class ClientController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-       
-
-        $clients = Client::paginate(2);
-    
-
-        return view('clients.index',compact (['clients']));
-
-        //return 'ola mundo sem porteira';
+        $products = Product::paginate(10);
+        return view('products.index',compact(['products']));
     }
 
     /**
@@ -32,7 +25,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-         return view('clients.create');
+        //
     }
 
     /**
@@ -49,10 +42,10 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
         //
     }
@@ -60,10 +53,10 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
         //
     }
@@ -72,10 +65,10 @@ class ClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -83,10 +76,10 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
         //
     }

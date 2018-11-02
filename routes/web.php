@@ -19,13 +19,12 @@ Route::get('/cliente', 'ClientController@index');
 
 Auth::routes();
 
+Route::resource('produtos', 'ProductController');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/clientes', 'ClientController@index');
+Route::get('/clientes', 'ClientController@index')->name('clients.index');
 
-Route::get('/clientes-inserir', 'ClientController@create');
+Route::resource('clients', 'ClientController');
 
-
-Route::get('/clientes/{name}', function ($name){
-	return 'Seja Bem vindo mito ' . $name;
-});
+Route::resource('produtos', 'ProductController');
