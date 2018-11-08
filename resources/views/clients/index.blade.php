@@ -17,14 +17,15 @@
                     </a>
 
                 </div>
-
-                <table>
-                	<tr>
-                		<th>id</th>
-                		<th>name</th>
-                		<th>email</th>
-                		<th>year</th>
+                <table class="table">
+                   
+                  <tr>
+                    <th>email</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>year</th>
                 		<th>obs</th>
+                    <th>acoes</th>
                 	</tr>
                 	  	@foreach ($clients as $client)
 
@@ -35,7 +36,12 @@
                				<td>{{ $client->email }}</td>
                				<td>{{ $client->year }}</td>
                				<td>{{ $client->obs }}</td>
-              			
+                      <td>
+                        <a 
+                        href="{{ route ('clients.edit', $client->id)}}" class = "btn btn-warning">Edit</a>
+                        {{ $client->id }}
+                      </td>
+
                 		</tr>
                 	@endforeach
 
