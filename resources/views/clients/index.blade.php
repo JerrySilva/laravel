@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">clientes</div>
 
@@ -20,9 +20,9 @@
                 <table class="table">
                    
                   <tr>
-                    <th>email</th>
                     <th>id</th>
                     <th>name</th>
+                    <th>email</th>
                     <th>year</th>
                 		<th>obs</th>
                     <th>acoes</th>
@@ -38,8 +38,24 @@
                				<td>{{ $client->obs }}</td>
                       <td>
                         <a 
-                        href="{{ route ('clients.edit', $client->id)}}" class = "btn btn-warning">Edit</a>
-                        {{ $client->id }}
+                        href="{{ route ('clients.edit', $client->id)}}" class = "btn btn-warning"
+                        >Edit</a>
+
+                        <a href="#" 
+                        class="btn btn-danger"
+
+                        onclick="event.preventDefault();
+                              document.getElementById('delete-form-{{$client->id}}').submit();" >Delete</a>
+
+
+                                   <form id="delete-form-{{$client->id}}" action="{{ route('clients.destroy', $client->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        {{method_field('DELETE')}}
+                                    </form>
+
+
+
+                        
                       </td>
 
                 		</tr>

@@ -27,4 +27,6 @@ Route::get('/clientes', 'ClientController@index')->name('clients.index');
 
 Route::resource('clients', 'ClientController');
 
-Route::resource('produtos', 'ProductController');
+Route::resource('products', 'ProductController');
+
+Route::resource('categories', 'CategoryController');

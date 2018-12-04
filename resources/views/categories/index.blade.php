@@ -6,18 +6,18 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Produtos</div>
+                <div class="card-header">Categoria</div>
 
 
 
                 
 
-                {{ $products->links()}}
+                {{ $categories->links()}}
 
                <div class="card-body">
                   <div class="col-md-12 text-right">
                 
-                    <a href="{{route('products.create')}}" class="btn btn-success">
+                    <a href="{{route('categories.create')}}" class="btn btn-success">
                       Adicionar
                     </a>
 
@@ -27,21 +27,15 @@
                   <tr>
                     <th>id</th>
                     <th>name</th>
-                    <th>category</th>
-                    <th>value</th>
-                    <th>obs</th>
-                    <th>actions</th>
+                    
                   </tr>
-                      @foreach ($products as $product)
+                      @foreach ($categories as $category)
 
                     <tr>
                       
-                      <td>{{ $product->id }}</td>
-                      <td>{{ $product->name }}</td>
-                      <td>{{ @$product->category->name }}</td>
-                      <td>{{ $product->value }}</td>
-                      <td>{{ $product->obs }}</td>
-                       <td></td>
+                      <td>{{ $category->id }}</td>
+                      <td>{{ $category->name }}</td>
+                      <td></td>
                     </tr>
                   @endforeach
 
@@ -53,3 +47,4 @@
             </div>
 </div>
 @endsection
+

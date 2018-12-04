@@ -74,7 +74,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::find($id);
-        return $client;
+        return view ('clients.edit', compact(['client']));
     }
 
     /**
@@ -86,7 +86,14 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+        $client->name = $request->name;
+        $client->email = $request->email;
+        $client->year = $request->year;
+        $client->obs = $request->obs;
+        $client->save();
+
+        return redirect(route('clients.index'));
     }
 
     /**
@@ -97,6 +104,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        $client->delete();
+
+        return redirect (route('clients.index'));
     }
 }

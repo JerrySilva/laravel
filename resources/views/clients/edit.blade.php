@@ -10,7 +10,7 @@
 
                 <div class="card-body">
                    
-                  <form class="form" method="POST" action="{{ route('clients.store')}}">
+                  <form class="form" method="POST" action="{{ route('clients.update', $client->id) }}">
 
                   	{{ csrf_field() }}
 
@@ -20,25 +20,24 @@
                   	<div class="form-group">
                   		<label>Nome</label>
                   		<input type="text" name="name" class="form-control" 
-                  		value-"{{$client->name}}"/>
+                  		value="{{$client->name}}"/>
                   	</div>
 					
 					<div class="form-group">
-                  		<label >email</label>
+                  		<label>email</label>
                   		<input type="email" name="email" class="form-control"
-                  		value-"{{$client->email}}"/>
+                  		value="{{$client->email}}"/>
                   	</div>      
                   	<div class="form-group">
-                  		<label >ano</label>
+                  		<label>ano</label>
                   		<input type="year" name="year" class="form-control" 
-                  		value-"{{$client->year}}"/>
+                  		value="{{$client->year}}"/>
                   	</div>     
                   	<div class="form-group">
-                  		<label >Obs</label>
+                  		<label>Obs</label>
                   		<textarea class="form-control" name="obs">
-                  		{{$client->year}}"
-                  		</textarea>
-                  	</div> 
+                  		{{$client->obs}}</textarea>
+                  	</div>
 
                   	<input type="submit" value="salvar" Class="btn btn-primary">     
 
